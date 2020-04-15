@@ -16,10 +16,9 @@ public class App {
 
     public static void main(String ...args) {
 
-        List<Event> events = EventGenerator.generateList(1000);
         Producer<String, Event> producer = EventProducerCreator.createProducer();
 
-        events.forEach(event -> {
+        EventGenerator.generateList(1000).forEach(event -> {
             ProducerRecord record = new ProducerRecord<String, Event>("c123topic",event.getId().toString(), event);
             producer.send(record);
             logger.debug("record sent: " + event);

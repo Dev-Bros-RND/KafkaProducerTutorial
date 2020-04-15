@@ -21,4 +21,6 @@ public class Event {
 
     private String description;
 
+    private Priority priority;
+
 }
